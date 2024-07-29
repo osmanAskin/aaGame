@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     AudioManager _audioManager;
     Rotator _rotator;
     Spawner _spawner;
+    DoTweenScale _doTweenScale;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
         _audioManager = GameObject.FindGameObjectWithTag("AudioTag").GetComponent<AudioManager>();
         _spawner = FindObjectOfType<Spawner>();
         _rotator = FindObjectOfType<Rotator>();
+        _doTweenScale = FindObjectOfType<DoTweenScale>();
     }
 
     public void CheckFinish() 
@@ -50,6 +52,7 @@ public class UIManager : MonoBehaviour
 
             Camera.main.backgroundColor = Color.green;
             _rotator.speed = 70.0f;
+            _doTweenScale.RotatorScaleIncrease();
         }
     }
     

@@ -1,4 +1,6 @@
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Pin : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Pin : MonoBehaviour
     private UIManager _uiManager;
     private Rotator _rotator;
     private Spawner _spawner;
+    private DoTweenScale _doTweenScale;
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class Pin : MonoBehaviour
         _uiManager = FindObjectOfType<UIManager>();
         _rotator = FindObjectOfType<Rotator>();
         _spawner = FindObjectOfType<Spawner>();
+        _doTweenScale = FindObjectOfType<DoTweenScale>();
     }
 
     private void Update()
@@ -81,6 +85,7 @@ public class Pin : MonoBehaviour
         _uiManager.ScoreSet();
         _uiManager.GoalSet();
         _uiManager.CheckFinish();
+        //_doTweenScale.RotatorScaleIncrease();
     }
 
     private void SetParentAndPin(Transform parent)
@@ -96,6 +101,7 @@ public class Pin : MonoBehaviour
         _rotator.speed = 30.0f;
         _rotator.SetRotate();
         _uiManager.GameOver();
+        _doTweenScale.RotatorScaleIncrease();
         Camera.main.backgroundColor = Color.red;
     }
 
