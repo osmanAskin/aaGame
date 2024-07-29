@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
             taptobuttonObject.SetActive(true);
 
             Camera.main.backgroundColor = Color.green;
-            _rotator.speed = 50.0f;
+            _rotator.speed = 70.0f;
         }
     }
     
