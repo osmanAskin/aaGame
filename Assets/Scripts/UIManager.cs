@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
 
     private decimal goal;
 
+    AudioManager _audioManager;
     Rotator _rotator;
     Spawner _spawner;
 
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        _audioManager = GameObject.FindGameObjectWithTag("AudioTag").GetComponent<AudioManager>();
         _spawner = FindObjectOfType<Spawner>();
         _rotator = FindObjectOfType<Rotator>();
     }
@@ -37,6 +39,9 @@ public class UIManager : MonoBehaviour
     {
         if (goal == 0)
         {
+            //sound
+            _audioManager.PlaySFX(_audioManager.winSound);
+            //other
             _spawner.isContinuous = false;
             pinSpawnPointObject.SetActive(false);
 
@@ -44,7 +49,7 @@ public class UIManager : MonoBehaviour
             taptobuttonObject.SetActive(true);
 
             Camera.main.backgroundColor = Color.green;
-            _rotator.speed -= 80;
+            _rotator.speed = 50.0f;
         }
     }
     
